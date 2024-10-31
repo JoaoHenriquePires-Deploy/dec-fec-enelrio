@@ -1139,6 +1139,16 @@ if selected == 'Listagem Conjuntos':
     metrica_conjuntos_dec_ytd_ordenado = metrica_conjuntos_dec_ytd.sort_values(by='Status DEC YTD').reset_index(drop=True)
     metrica_conjuntos_fec_ytd_ordenado = metrica_conjuntos_fec_ytd.sort_values(by='Status FEC YTD').reset_index(drop=True)
 
+    metrica_conjuntos_dec_tam = base_dec_analises_com_polo_tam['Status DEC TAM'].value_counts().reset_index()
+    metrica_conjuntos_fec_tam = base_fec_analises_com_polo_tam['Status FEC TAM'].value_counts().reset_index()
+    metrica_conjuntos_dec_tam.columns = ['Status DEC TAM', 'Num Conjuntos']
+    metrica_conjuntos_fec_tam.columns = ['Status FEC TAM', 'Num Conjuntos']
+    metrica_conjuntos_dec_tam['Status DEC TAM'] = pd.Categorical(metrica_conjuntos_dec_tam['Status DEC TAM'], categories=['Conjunto Normal', 'Conjunto em Atenção', 'Conjunto Crítico'], ordered=True)
+    metrica_conjuntos_fec_tam['Status FEC TAM'] = pd.Categorical(metrica_conjuntos_fec_tam['Status FEC TAM'], categories=['Conjunto Normal', 'Conjunto em Atenção', 'Conjunto Crítico'], ordered=True)
+    metrica_conjuntos_dec_tam_ordenado = metrica_conjuntos_dec_tam.sort_values(by='Status DEC TAM').reset_index(drop=True)
+    metrica_conjuntos_fec_tam_ordenado = metrica_conjuntos_fec_tam.sort_values(by='Status FEC TAM').reset_index(drop=True)
+
+
 
 
 
@@ -1168,9 +1178,24 @@ if selected == 'Listagem Conjuntos':
     st.write('---')
 
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     col1.subheader('Conjuntos DEC LTM')
     col3.subheader('Conjuntos FEC LTM')
+
+    col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
+
+    col1.metric(label="Conjunto Normal", value=f"{metrica_conjuntos_dec_tam_ordenado.iloc[0, -1]}")
+    col2.metric(label="Conjunto em Atenção", value=f"{metrica_conjuntos_dec_tam_ordenado.iloc[1, -1]}")
+    col3.metric(label="Conjunto Crítico", value=f"{metrica_conjuntos_dec_tam_ordenado.iloc[2, -1]}")
+
+    col5.metric(label="Conjunto Normal", value=f"{metrica_conjuntos_fec_tam_ordenado.iloc[0, -1]}")
+    col6.metric(label="Conjunto em Atenção", value=f"{metrica_conjuntos_fec_tam_ordenado.iloc[1, -1]}")
+    col7.metric(label="Conjunto Crítico", value=f"{metrica_conjuntos_fec_tam_ordenado.iloc[2, -1]}")
+
+
+
+
+
 
     col1, col2 = st.columns(2)
 
