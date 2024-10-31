@@ -1184,13 +1184,13 @@ if selected == 'Listagem Conjuntos':
 
     col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
 
-    col1.metric(label="Conjunto Normal", value=f"{metrica_conjuntos_dec_tam_ordenado.iloc[0, -1]}")
-    col2.metric(label="Conjunto em Atenção", value=f"{metrica_conjuntos_dec_tam_ordenado.iloc[1, -1]}")
-    col3.metric(label="Conjunto Crítico", value=f"{metrica_conjuntos_dec_tam_ordenado.iloc[2, -1]}")
+    col1.metric(label="Normal", value=f"{metrica_conjuntos_dec_tam_ordenado.iloc[0, -1]}")
+    col2.metric(label="Em Atenção", value=f"{metrica_conjuntos_dec_tam_ordenado.iloc[1, -1]}")
+    col3.metric(label="Crítico", value=f"{metrica_conjuntos_dec_tam_ordenado.iloc[2, -1]}")
 
-    col5.metric(label="Conjunto Normal", value=f"{metrica_conjuntos_fec_tam_ordenado.iloc[0, -1]}")
-    col6.metric(label="Conjunto em Atenção", value=f"{metrica_conjuntos_fec_tam_ordenado.iloc[1, -1]}")
-    col7.metric(label="Conjunto Crítico", value=f"{metrica_conjuntos_fec_tam_ordenado.iloc[2, -1]}")
+    col5.metric(label="Normal", value=f"{metrica_conjuntos_fec_tam_ordenado.iloc[0, -1]}")
+    col6.metric(label="Em Atenção", value=f"{metrica_conjuntos_fec_tam_ordenado.iloc[1, -1]}")
+    col7.metric(label="Crítico", value=f"{metrica_conjuntos_fec_tam_ordenado.iloc[2, -1]}")
 
 
 
