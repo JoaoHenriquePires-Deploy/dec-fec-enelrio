@@ -1139,6 +1139,13 @@ if selected == 'Listagem Conjuntos':
     metrica_conjuntos_dec_ytd_ordenado = metrica_conjuntos_dec_ytd.sort_values(by='Status DEC YTD').reset_index(drop=True)
     metrica_conjuntos_fec_ytd_ordenado = metrica_conjuntos_fec_ytd.sort_values(by='Status FEC YTD').reset_index(drop=True)
 
+
+
+
+    col1, col2, col3 = st.columns(3)
+    col1.subheader('Conjuntos DEC YTD')
+    col3.subheader('Conjuntos FEC YTD')
+
     col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
 
     col1.metric(label="DEC Controlado", value=f"{metrica_conjuntos_dec_ytd.iloc[0, -1]}")
@@ -1151,10 +1158,6 @@ if selected == 'Listagem Conjuntos':
 
 
 
-
-    col1, col2, col3 = st.columns(3)
-    col1.subheader('Conjuntos DEC YTD')
-    col3.subheader('Conjuntos FEC YTD')
 
     col1, col2 = st.columns(2)
 
