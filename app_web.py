@@ -1130,6 +1130,26 @@ if selected == 'Listagem Conjuntos':
         x=0.5))
    
 
+    metrica_conjuntos_dec_ytd = base_dec_analises_com_polo_ytd['Status DEC YTD'].value_counts().reset_index()
+    metrica_conjuntos_fec_ytd = base_fec_analises_com_polo_ytd['Status FEC YTD'].value_counts().reset_index()
+    metrica_conjuntos_dec_ytd.columns = ['Status DEC YTD', 'Num Conjuntos']
+    metrica_conjuntos_fec_ytd.columns = ['Status FEC YTD', 'Num Conjuntos']
+    metrica_conjuntos_dec_ytd['Status DEC YTD'] = pd.Categorical(metrica_conjuntos_dec_ytd['Status DEC YTD'], categories=['DEC Controlado', 'DEC em Atenção', 'DEC Irreversível'], ordered=True)
+    metrica_conjuntos_fec_ytd['Status FEC YTD'] = pd.Categorical(metrica_conjuntos_fec_ytd['Status FEC YTD'], categories=['FEC Controlado', 'FEC em Atenção', 'FEC Irreversível'], ordered=True)
+    metrica_conjuntos_dec_ytd_ordenado = metrica_conjuntos_dec_ytd.sort_values(by='Status DEC YTD').reset_index(drop=True)
+    metrica_conjuntos_fec_ytd_ordenado = metrica_conjuntos_fec_ytd.sort_values(by='Status FEC YTD').reset_index(drop=True)
+
+    col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
+
+    col1.metric(label="DEC Controlado", value=f"{metrica_conjuntos_dec_ytd.iloc[0, -1]}")
+    col2.metric(label="DEC em Atenção", value=f"{metrica_conjuntos_dec_ytd.iloc[1, -1]}")
+    col3.metric(label="DEC Irreversível", value=f"{metrica_conjuntos_dec_ytd.iloc[2, -1]}")
+
+    col5.metric(label="FEC Controlado", value=f"{metrica_conjuntos_fec_ytd.iloc[0, -1]}")
+    col6.metric(label="FEC em Atenção", value=f"{metrica_conjuntos_fec_ytd.iloc[1, -1]}")
+    col7.metric(label="FEC Irreversível", value=f"{metrica_conjuntos_fec_ytd.iloc[2, -1]}")
+
+
 
 
     col1, col2, col3 = st.columns(3)
