@@ -894,7 +894,7 @@ if selected == 'Conjuntos':
     metrica_conjuntos_fec_ultimas_col['% Mês'] = ((metrica_conjuntos_fec_ultimas_col.iloc[:, -2] - metrica_conjuntos_fec_ultimas_col.iloc[:, -3]) / metrica_conjuntos_fec_ultimas_col.iloc[:, -3]) * 100
 
 
-    st.header("DEC")
+    st.header("DEC - LTM")
 
     col1, col2, col3 = st.columns(3)
 
@@ -920,7 +920,7 @@ if selected == 'Conjuntos':
     st.write('---')
 
 
-    st.header("FEC")
+    st.header("FEC - LTM")
 
     col1, col2, col3 = st.columns(3)
 
