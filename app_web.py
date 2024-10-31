@@ -1180,7 +1180,7 @@ if selected == 'Listagem Conjuntos':
 
     col1, col2 = st.columns(2)
     col1.subheader('Conjuntos DEC LTM')
-    col3.subheader('Conjuntos FEC LTM')
+    col2.subheader('Conjuntos FEC LTM')
 
     col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
 
