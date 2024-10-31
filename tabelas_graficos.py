@@ -54,8 +54,8 @@ def ler_arquivos(dir):
     base_meta_dec_aneel_polos = pd.read_csv(dir, sep='|', on_bad_lines='skip')
     base_meta_fec_aneel_polos = pd.read_csv(dir, sep='|', on_bad_lines='skip')
     return base_clientes, base_conjuntos, base_meta_aneel_conjuntos, base_meta_dec_aneel_polos, base_meta_fec_aneel_polos
-base_clientes = ler_arquivos(f'Clientes 2024.txt')
-base_clientes = base_clientes[0]
+# base_clientes = ler_arquivos(f'Clientes 2024.txt')
+# base_clientes = base_clientes[0]
 base_conjuntos = ler_arquivos(f'Conjuntos.txt')
 base_conjuntos = base_conjuntos[0]
 base_meta_aneel_conjuntos = ler_arquivos(f'Meta Aneel Conjuntos 2024.txt')
