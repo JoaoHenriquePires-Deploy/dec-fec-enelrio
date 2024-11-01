@@ -400,12 +400,13 @@ if selected == 'Polos - YTD':
     col5.subheader('FEC')
     col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
 
-    col1.metric(label="Normal", value=f"{num_dec_controlado}")
+    col1.metric(label="Controlado", value=f"{num_dec_controlado}")
     col2.metric(label="Em Atenção", value=f"{num_dec_atencao}")
-    col3.metric(label="Crítico", value=f"{num_dec_irreversivel}")
-    col5.metric(label="Normal", value=f"{num_fec_controlado}")
+    col3.metric(label="Irreversível", value=f"{num_dec_irreversivel}")
+
+    col5.metric(label="Controlado", value=f"{num_fec_controlado}")
     col6.metric(label="Em Atenção", value=f"{num_fec_atencao}")
-    col7.metric(label="Crítico", value=f"{num_fec_irreversivel}")
+    col7.metric(label="Irreversível", value=f"{num_fec_irreversivel}")
 
 
 
